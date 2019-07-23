@@ -1,0 +1,10 @@
+body {
+  background-image: url(assets/images/3b4f6be2b7637ca9cd7529f15589708a.svg);
+}
+
+body h1 {
+  color: pink;
+  -webkit-transform: translate(12px, 50%);
+          transform: translate(12px, 50%);
+}
+
