@@ -1,3 +1,4 @@
+/*! CopyRight by FinGet! */
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	function hotDisposeChunk(chunkId) {
 /******/ 		delete installedChunks[chunkId];
@@ -63,7 +64,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "a615698e0f56c4e53523";
+/******/ 	var hotCurrentHash = "99aa18afb12ab38cc821";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -837,7 +838,7 @@ eval("module.exports = __webpack_require__.p + \"assets/images/7db737854a8dbae38
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _assets_snail_jpg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/snail.jpg */ \"./src/assets/snail.jpg\");\n/* harmony import */ var _assets_snail_jpg__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_assets_snail_jpg__WEBPACK_IMPORTED_MODULE_0__);\n// let name = require('./a.js');\n__webpack_require__(/*! ./assets/css/index.css */ \"./src/assets/css/index.css\");\n\n__webpack_require__(/*! ./assets/css/commom.less */ \"./src/assets/css/commom.less\"); // console.log('hello webpack4.0');\n// console.log(name);\n// let test = () => {\n// \tconsole.log('箭头函数！');\n// }\n// test();\n// console.log(test);\n// class Person{\n// \tconstructor(name, age) {\n//     this.name = name;\n//     this.age = age;\n//   }\n// }\n// let person = new Person('FinGet',24);\n// console.log(person.name);\n// console.log('FinGet'.includes('Get'));\n\n\n\nvar img = new Image();\nimg.src = _assets_snail_jpg__WEBPACK_IMPORTED_MODULE_0___default.a;\ndocument.body.appendChild(img);\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _assets_snail_jpg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/snail.jpg */ \"./src/assets/snail.jpg\");\n/* harmony import */ var _assets_snail_jpg__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_assets_snail_jpg__WEBPACK_IMPORTED_MODULE_0__);\n// let name = require('./a.js');\n__webpack_require__(/*! ./assets/css/index.css */ \"./src/assets/css/index.css\");\n\n__webpack_require__(/*! ./assets/css/commom.less */ \"./src/assets/css/commom.less\");\n\nconsose.log('hello webpack4.0'); // console.log(name);\n// let test = () => {\n// \tconsole.log('箭头函数！');\n// }\n// test();\n// console.log(test);\n// class Person{\n// \tconstructor(name, age) {\n//     this.name = name;\n//     this.age = age;\n//   }\n// }\n// let person = new Person('FinGet',24);\n// console.log(person.name);\n// console.log('FinGet'.includes('Get'));\n\n\nvar img = new Image();\nimg.src = _assets_snail_jpg__WEBPACK_IMPORTED_MODULE_0___default.a;\ndocument.body.appendChild(img);\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 

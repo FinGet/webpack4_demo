@@ -2,12 +2,19 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const TerserJSPlugin = require('terser-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 module.exports = {
   mode: 'development', // 模式 默认两种 production development
   entry: './src/index.js', // 打包入口文件
+  devtool: "source-map", // 增加映射文件
   output: {
     filename: 'bundle.[hash:8].js', // 打包后的文件名
     path: path.resolve(__dirname, 'dist') // 这个路径必须是一个绝对路径，所以需要用path来解析一下
+  },
+  optimization: {
+    minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
   },
   module: { // 模块
     rules: [
@@ -17,21 +24,40 @@ module.exports = {
       // {test: /\.css$/, use: ['style-loader','css-loader']}
       {
         test: /\.(css|less)$/,
-        use: [{
-            loader: 'style-loader',
-            options: {
-              insertAt: 'top' // 插入顶部 这样就会被后面的样式覆盖
-            }
-          },
+        use: [
+          MiniCssExtractPlugin.loader,
           'css-loader',
+          'postcss-loader',
           'less-loader'
         ]
+      },
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+      },
+      // {
+      // 	test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+      // 	use: 'file-loader' 
+      // },
+      {
+        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 1,
+            outputPath: 'assets/images' // 打包后的存放路径
+          }
+        }
+      },
+      {
+        test: /\.(htm|html)$/i,
+        loader: 'html-withimg-loader'
       }
     ]
   },
   // 开发服务器的配置 官方文档： https://webpack.docschina.org/configuration/dev-server/
   devServer: {
-    contentBase: './dist', // 告诉服务器从哪个目录中提供内容。只有在你想要提供静态文件时才需要。
+    contentBase: path.resolve(__dirname, "dist"), // 告诉服务器从哪个目录中提供内容。只有在你想要提供静态文件时才需要。
     // publicPath: './dist', // 将用于确定应该从哪里提供 bundle，并且此选项优先。 此路径下的打包文件可在浏览器中访问。
     port: 3000, // 端口
     progress: true, // 打包过程
@@ -46,6 +72,7 @@ module.exports = {
     //     }
     //   }
   },
+
 
   // 配置插件
 
@@ -66,10 +93,10 @@ module.exports = {
       */
       inject: true,
       // favicon: 'xxx.ico' // 给生成的 html 文件生成一个 favicon
-      minify: { // 压缩
-        removeAttributeQuotes: true, // 去掉属性的双引号
-        collapseWhitespace: true // 代码压缩成一行
-      },
+      // minify: { // 压缩
+      // 	removeAttributeQuotes: true, // 去掉属性的双引号
+      // 	collapseWhitespace: true // 代码压缩成一行
+      // },
       hash: true, // hash选项的作用是 给生成的 js 文件一个独特的 hash 值，该 hash 值是该次 webpack 编译的 hash 值
       cahe: true, // 默认值是 true。表示只有在内容变化时才生成一个新的文件
       showErrors: true, // 如果 webpack 编译出现错误，webpack会将错误信息包裹在一个 pre 标签内，属性的默认值为 true 
@@ -79,6 +106,9 @@ module.exports = {
       	chunks 默认会在生成的 html 文件中引用所有的 js 文件，当然你也可以指定引入哪些特定的文件。
       **/
       // chunks: ['index','index2'], 
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'assets/css/index.css'
     })
   ]
 }

@@ -2,7 +2,7 @@
 require('./assets/css/index.css');
 require('./assets/css/commom.less');
 
-// console.log('hello webpack4.0');
+consose.log('hello webpack4.0');
 // console.log(name);
 
 // let test = () => {

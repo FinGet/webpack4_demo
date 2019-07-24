@@ -14,6 +14,7 @@
     "autoprefixer": "^9.6.1",
     "babel-loader": "^8.0.6",
     "babel-preset-stage-2": "^6.24.1",
+    "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.0.0",
     "eslint": "^6.1.0",
     "eslint-loader": "^2.2.1",
@@ -29,7 +30,8 @@
     "url-loader": "^2.1.0",
     "webpack": "^4.36.1",
     "webpack-cli": "^3.3.6",
-    "webpack-dev-server": "^3.7.2"
+    "webpack-dev-server": "^3.7.2",
+    "webpack-merge": "^4.2.1"
   },
   "browserslist": [
     "> 1%",
