@@ -63,7 +63,8 @@ module.exports = {
         use: {
           loader: 'url-loader',
           options: {
-            limit: 1,
+            limit: 20*1024, // 小于20k的图片 打包成base64
+            name: '[name].[ext]', // 保持名称不变
             outputPath: 'assets/images' // 打包后的存放路径
           }
         }

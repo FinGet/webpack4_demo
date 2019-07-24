@@ -88,6 +88,7 @@ module.exports = {
           loader: 'url-loader',
           options: {
             limit: 1,
+            name: '[name].[ext]', // 保持名称不变
             outputPath: 'assets/images', // 打包后的存放路径
             publicPath: path.resolve(__dirname, 'dist/assets/images')
           }
